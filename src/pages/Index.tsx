@@ -24,131 +24,143 @@ interface House {
 }
 
 const HOUSES: House[] = [
-  // Левая часть комплекса
+  // Верхняя часть - левый блок
   {
-    id: '69a',
-    number: '69а',
-    address: 'ул. Минская, д. 69а',
-    x: 15,
-    y: 20,
+    id: '69_2',
+    number: '69/2',
+    address: 'ул. Минская, д. 69/2',
+    x: 10,
+    y: 15,
     services: [
       { id: '1', name: 'Водоснабжение', price: '1,200₽', status: 'active' },
       { id: '2', name: 'Отопление', price: '2,800₽', status: 'active' },
       { id: '3', name: 'Электричество', price: '1,500₽', status: 'active' },
+      { id: '4', name: 'Лифт', price: '250₽', status: 'active' }
+    ]
+  },
+  {
+    id: '69d',
+    number: '69д',
+    address: 'ул. Минская, д. 69д',
+    x: 10,
+    y: 25,
+    services: [
+      { id: '1', name: 'Водоснабжение', price: '1,150₽', status: 'active' },
+      { id: '2', name: 'Отопление', price: '2,700₽', status: 'active' },
+      { id: '3', name: 'Электричество', price: '1,450₽', status: 'active' },
       { id: '4', name: 'Домофон', price: '100₽', status: 'active' }
     ]
   },
   {
-    id: '69b',
-    number: '69б',
-    address: 'ул. Минская, д. 69б',
-    x: 15,
+    id: '69e',
+    number: '69е',
+    address: 'ул. Минская, д. 69е',
+    x: 10,
     y: 35,
     services: [
-      { id: '1', name: 'Водоснабжение', price: '1,150₽', status: 'active' },
-      { id: '2', name: 'Отопление', price: '2,600₽', status: 'active' },
+      { id: '1', name: 'Водоснабжение', price: '1,180₽', status: 'active' },
+      { id: '2', name: 'Отопление', price: '2,650₽', status: 'active' },
       { id: '3', name: 'Электричество', price: '1,400₽', status: 'active' },
-      { id: '4', name: 'Лифт', price: '250₽', status: 'maintenance' }
+      { id: '4', name: 'Уборка', price: '150₽', status: 'active' }
+    ]
+  },
+  {
+    id: '69_1',
+    number: '69/1',
+    address: 'ул. Минская, д. 69/1',
+    x: 10,
+    y: 45,
+    services: [
+      { id: '1', name: 'Водоснабжение', price: '1,220₽', status: 'active' },
+      { id: '2', name: 'Отопление', price: '2,750₽', status: 'active' },
+      { id: '3', name: 'Электричество', price: '1,480₽', status: 'active' },
+      { id: '4', name: 'Консьерж', price: '400₽', status: 'active' }
     ]
   },
   {
     id: '69v',
     number: '69в',
     address: 'ул. Минская, д. 69в',
-    x: 15,
-    y: 50,
+    x: 10,
+    y: 55,
+    services: [
+      { id: '1', name: 'Водоснабжение', price: '1,200₽', status: 'active' },
+      { id: '2', name: 'Отопление', price: '2,800₽', status: 'active' },
+      { id: '3', name: 'Электричество', price: '1,500₽', status: 'active' },
+      { id: '4', name: 'Видеонаблюдение', price: '200₽', status: 'active' }
+    ]
+  },
+  {
+    id: '69a',
+    number: '69а',
+    address: 'ул. Минская, д. 69а',
+    x: 10,
+    y: 65,
     services: [
       { id: '1', name: 'Водоснабжение', price: '1,180₽', status: 'active' },
       { id: '2', name: 'Отопление', price: '2,700₽', status: 'active' },
       { id: '3', name: 'Электричество', price: '1,450₽', status: 'active' },
-      { id: '4', name: 'Уборка', price: '150₽', status: 'active' }
+      { id: '4', name: 'Лифт', price: '250₽', status: 'maintenance' }
     ]
   },
+  // Центральный блок
   {
-    id: '69g',
-    number: '69г',
-    address: 'ул. Минская, д. 69г',
-    x: 15,
-    y: 65,
+    id: '67_1',
+    number: '67/1',
+    address: 'ул. Минская, д. 67/1',
+    x: 20,
+    y: 20,
     services: [
-      { id: '1', name: 'Водоснабжение', price: '1,220₽', status: 'active' },
-      { id: '2', name: 'Отопление', price: '2,850₽', status: 'active' },
-      { id: '3', name: 'Электричество', price: '1,520₽', status: 'active' },
-      { id: '4', name: 'Консьерж', price: '400₽', status: 'active' }
-    ]
-  },
-  // Центральная часть
-  {
-    id: '67a',
-    number: '67а',
-    address: 'ул. Минская, д. 67а',
-    x: 25,
-    y: 15,
-    services: [
-      { id: '1', name: 'Водоснабжение', price: '1,300₽', status: 'active' },
-      { id: '2', name: 'Отопление', price: '3,000₽', status: 'active' },
-      { id: '3', name: 'Электричество', price: '1,600₽', status: 'active' },
-      { id: '4', name: 'Видеонаблюдение', price: '200₽', status: 'active' }
+      { id: '1', name: 'Водоснабжение', price: '1,250₽', status: 'active' },
+      { id: '2', name: 'Отопление', price: '2,900₽', status: 'active' },
+      { id: '3', name: 'Электричество', price: '1,550₽', status: 'active' },
+      { id: '4', name: 'Интернет', price: '800₽', status: 'active' }
     ]
   },
   {
     id: '67b',
     number: '67б',
     address: 'ул. Минская, д. 67б',
-    x: 25,
+    x: 20,
     y: 30,
     services: [
-      { id: '1', name: 'Водоснабжение', price: '1,250₽', status: 'active' },
-      { id: '2', name: 'Отопление', price: '2,900₽', status: 'inactive' },
-      { id: '3', name: 'Электричество', price: '1,550₽', status: 'active' },
-      { id: '4', name: 'Интернет', price: '800₽', status: 'active' }
-    ]
-  },
-  {
-    id: '67v',
-    number: '67в',
-    address: 'ул. Минская, д. 67в',
-    x: 25,
-    y: 45,
-    services: [
       { id: '1', name: 'Водоснабжение', price: '1,280₽', status: 'active' },
-      { id: '2', name: 'Отопление', price: '2,950₽', status: 'active' },
-      { id: '3', name: 'Электричество', price: '1,580₽', status: 'maintenance' },
+      { id: '2', name: 'Отопление', price: '2,950₽', status: 'inactive' },
+      { id: '3', name: 'Электричество', price: '1,580₽', status: 'active' },
       { id: '4', name: 'Мусоропровод', price: '120₽', status: 'active' }
     ]
   },
-  // Правая часть
   {
-    id: '65',
-    number: '65',
-    address: 'ул. Минская, д. 65',
-    x: 65,
-    y: 25,
+    id: '67a_1',
+    number: '67а',
+    address: 'ул. Минская, д. 67а',
+    x: 20,
+    y: 40,
     services: [
-      { id: '1', name: 'Водоснабжение', price: '1,350₽', status: 'active' },
-      { id: '2', name: 'Отопление', price: '3,100₽', status: 'active' },
-      { id: '3', name: 'Электричество', price: '1,650₽', status: 'active' },
-      { id: '4', name: 'Парковка', price: '500₽', status: 'active' }
-    ]
-  },
-  {
-    id: '63',
-    number: '63',
-    address: 'ул. Минская, д. 63',
-    x: 55,
-    y: 35,
-    services: [
-      { id: '1', name: 'Водоснабжение', price: '1,180₽', status: 'active' },
-      { id: '2', name: 'Отопление', price: '2,750₽', status: 'active' },
-      { id: '3', name: 'Электричество', price: '1,450₽', status: 'active' },
+      { id: '1', name: 'Водоснабжение', price: '1,300₽', status: 'active' },
+      { id: '2', name: 'Отопление', price: '3,000₽', status: 'active' },
+      { id: '3', name: 'Электричество', price: '1,600₽', status: 'active' },
       { id: '4', name: 'Охрана', price: '300₽', status: 'active' }
     ]
   },
   {
-    id: '61',
-    number: '61',
-    address: 'ул. Минская, д. 61',
-    x: 55,
+    id: '67a_2',
+    number: '67а',
+    address: 'ул. Минская, д. 67а',
+    x: 20,
+    y: 50,
+    services: [
+      { id: '1', name: 'Водоснабжение', price: '1,250₽', status: 'active' },
+      { id: '2', name: 'Отопление', price: '2,900₽', status: 'active' },
+      { id: '3', name: 'Электричество', price: '1,550₽', status: 'active' },
+      { id: '4', name: 'Парковка', price: '500₽', status: 'active' }
+    ]
+  },
+  {
+    id: '63a',
+    number: '63а',
+    address: 'ул. Минская, д. 63а',
+    x: 30,
     y: 45,
     services: [
       { id: '1', name: 'Водоснабжение', price: '1,200₽', status: 'active' },
@@ -158,50 +170,51 @@ const HOUSES: House[] = [
     ]
   },
   {
-    id: '59',
-    number: '59',
-    address: 'ул. Минская, д. 59',
-    x: 75,
+    id: '67v',
+    number: '67в',
+    address: 'ул. Минская, д. 67в',
+    x: 30,
     y: 35,
     services: [
       { id: '1', name: 'Водоснабжение', price: '1,320₽', status: 'active' },
       { id: '2', name: 'Отопление', price: '3,050₽', status: 'active' },
-      { id: '3', name: 'Электричество', price: '1,620₽', status: 'active' },
-      { id: '4', name: 'Благоустройство', price: '200₽', status: 'maintenance' }
+      { id: '3', name: 'Электричество', price: '1,620₽', status: 'maintenance' },
+      { id: '4', name: 'Благоустройство', price: '200₽', status: 'active' }
     ]
   },
+  // Правая часть
   {
-    id: '57',
-    number: '57',
-    address: 'ул. Минская, д. 57',
-    x: 65,
-    y: 45,
-    services: [
-      { id: '1', name: 'Водоснабжение', price: '1,250₽', status: 'active' },
-      { id: '2', name: 'Отопление', price: '2,900₽', status: 'active' },
-      { id: '3', name: 'Электричество', price: '1,550₽', status: 'active' },
-      { id: '4', name: 'Спортплощадка', price: '100₽', status: 'active' }
-    ]
-  },
-  {
-    id: '55',
-    number: '55',
-    address: 'ул. Минская, д. 55',
-    x: 55,
-    y: 55,
+    id: '67',
+    number: '67',
+    address: 'ул. Минская, д. 67',
+    x: 40,
+    y: 25,
     services: [
       { id: '1', name: 'Водоснабжение', price: '1,280₽', status: 'active' },
       { id: '2', name: 'Отопление', price: '2,950₽', status: 'active' },
       { id: '3', name: 'Электричество', price: '1,580₽', status: 'active' },
+      { id: '4', name: 'Спортплощадка', price: '100₽', status: 'active' }
+    ]
+  },
+  {
+    id: '63',
+    number: '63',
+    address: 'ул. Минская, д. 63',
+    x: 50,
+    y: 40,
+    services: [
+      { id: '1', name: 'Водоснабжение', price: '1,350₽', status: 'active' },
+      { id: '2', name: 'Отопление', price: '3,100₽', status: 'active' },
+      { id: '3', name: 'Электричество', price: '1,650₽', status: 'active' },
       { id: '4', name: 'Зеленые насаждения', price: '120₽', status: 'active' }
     ]
   },
   {
-    id: '53',
-    number: '53',
-    address: 'ул. Минская, д. 53',
-    x: 45,
-    y: 55,
+    id: '65',
+    number: '65',
+    address: 'ул. Минская, д. 65',
+    x: 60,
+    y: 35,
     services: [
       { id: '1', name: 'Водоснабжение', price: '1,200₽', status: 'active' },
       { id: '2', name: 'Отопление', price: '2,800₽', status: 'active' },
@@ -209,39 +222,38 @@ const HOUSES: House[] = [
       { id: '4', name: 'Освещение', price: '150₽', status: 'active' }
     ]
   },
-  // Нижняя часть
   {
-    id: '51',
-    number: '51',
-    address: 'ул. Минская, д. 51',
-    x: 75,
-    y: 55,
-    services: [
-      { id: '1', name: 'Водоснабжение', price: '1,350₽', status: 'active' },
-      { id: '2', name: 'Отопление', price: '3,100₽', status: 'active' },
-      { id: '3', name: 'Электричество', price: '1,650₽', status: 'active' },
-      { id: '4', name: 'Магазин в доме', price: '0₽', status: 'active' }
-    ]
-  },
-  {
-    id: '49',
-    number: '49',
-    address: 'ул. Минская, д. 49',
-    x: 65,
-    y: 65,
+    id: '61',
+    number: '61',
+    address: 'ул. Минская, д. 61',
+    x: 50,
+    y: 50,
     services: [
       { id: '1', name: 'Водоснабжение', price: '1,180₽', status: 'active' },
       { id: '2', name: 'Отопление', price: '2,750₽', status: 'active' },
       { id: '3', name: 'Электричество', price: '1,450₽', status: 'active' },
+      { id: '4', name: 'Магазин в доме', price: '0₽', status: 'active' }
+    ]
+  },
+  {
+    id: '53',
+    number: '53',
+    address: 'ул. Минская, д. 53',
+    x: 40,
+    y: 55,
+    services: [
+      { id: '1', name: 'Водоснабжение', price: '1,320₽', status: 'active' },
+      { id: '2', name: 'Отопление', price: '3,050₽', status: 'active' },
+      { id: '3', name: 'Электричество', price: '1,620₽', status: 'active' },
       { id: '4', name: 'Почта', price: '50₽', status: 'active' }
     ]
   },
   {
-    id: '47',
-    number: '47',
-    address: 'ул. Минская, д. 47',
-    x: 85,
-    y: 50,
+    id: '59',
+    number: '59',
+    address: 'ул. Минская, д. 59',
+    x: 70,
+    y: 40,
     services: [
       { id: '1', name: 'Водоснабжение', price: '1,400₽', status: 'active' },
       { id: '2', name: 'Отопление', price: '3,200₽', status: 'active' },
@@ -250,16 +262,331 @@ const HOUSES: House[] = [
     ]
   },
   {
+    id: '57',
+    number: '57',
+    address: 'ул. Минская, д. 57',
+    x: 60,
+    y: 50,
+    services: [
+      { id: '1', name: 'Водоснабжение', price: '1,250₽', status: 'active' },
+      { id: '2', name: 'Отопление', price: '2,900₽', status: 'active' },
+      { id: '3', name: 'Электричество', price: '1,550₽', status: 'active' },
+      { id: '4', name: 'Кафе в доме', price: '0₽', status: 'active' }
+    ]
+  },
+  {
+    id: '57a',
+    number: '57а',
+    address: 'ул. Минская, д. 57а',
+    x: 65,
+    y: 55,
+    services: [
+      { id: '1', name: 'Водоснабжение', price: '1,280₽', status: 'active' },
+      { id: '2', name: 'Отопление', price: '2,950₽', status: 'active' },
+      { id: '3', name: 'Электричество', price: '1,580₽', status: 'active' },
+      { id: '4', name: 'Домофон', price: '100₽', status: 'active' }
+    ]
+  },
+  {
+    id: '55',
+    number: '55',
+    address: 'ул. Минская, д. 55',
+    x: 50,
+    y: 60,
+    services: [
+      { id: '1', name: 'Водоснабжение', price: '1,200₽', status: 'active' },
+      { id: '2', name: 'Отопление', price: '2,800₽', status: 'active' },
+      { id: '3', name: 'Электричество', price: '1,500₽', status: 'active' },
+      { id: '4', name: 'Лифт', price: '250₽', status: 'active' }
+    ]
+  },
+  {
+    id: '47',
+    number: '47',
+    address: 'ул. Минская, д. 47',
+    x: 75,
+    y: 50,
+    services: [
+      { id: '1', name: 'Водоснабжение', price: '1,350₽', status: 'active' },
+      { id: '2', name: 'Отопление', price: '3,100₽', status: 'active' },
+      { id: '3', name: 'Электричество', price: '1,650₽', status: 'active' },
+      { id: '4', name: 'Консьерж', price: '400₽', status: 'active' }
+    ]
+  },
+  {
+    id: '51',
+    number: '51',
+    address: 'ул. Минская, д. 51',
+    x: 65,
+    y: 65,
+    services: [
+      { id: '1', name: 'Водоснабжение', price: '1,180₽', status: 'active' },
+      { id: '2', name: 'Отопление', price: '2,750₽', status: 'active' },
+      { id: '3', name: 'Электричество', price: '1,450₽', status: 'active' },
+      { id: '4', name: 'Уборка', price: '150₽', status: 'active' }
+    ]
+  },
+  {
+    id: '49',
+    number: '49',
+    address: 'ул. Минская, д. 49',
+    x: 70,
+    y: 70,
+    services: [
+      { id: '1', name: 'Водоснабжение', price: '1,320₽', status: 'active' },
+      { id: '2', name: 'Отопление', price: '3,050₽', status: 'active' },
+      { id: '3', name: 'Электричество', price: '1,620₽', status: 'active' },
+      { id: '4', name: 'Видеонаблюдение', price: '200₽', status: 'active' }
+    ]
+  },
+  {
     id: '45',
     number: '45',
     address: 'ул. Минская, д. 45',
-    x: 85,
+    x: 80,
     y: 65,
+    services: [
+      { id: '1', name: 'Водоснабжение', price: '1,250₽', status: 'active' },
+      { id: '2', name: 'Отопление', price: '2,900₽', status: 'active' },
+      { id: '3', name: 'Электричество', price: '1,550₽', status: 'active' },
+      { id: '4', name: 'Интернет', price: '800₽', status: 'active' }
+    ]
+  },
+  {
+    id: '43',
+    number: '43',
+    address: 'ул. Минская, д. 43',
+    x: 85,
+    y: 70,
+    services: [
+      { id: '1', name: 'Водоснабжение', price: '1,280₽', status: 'active' },
+      { id: '2', name: 'Отопление', price: '2,950₽', status: 'active' },
+      { id: '3', name: 'Электричество', price: '1,580₽', status: 'active' },
+      { id: '4', name: 'Мусоропровод', price: '120₽', status: 'active' }
+    ]
+  },
+  {
+    id: '43_3',
+    number: '43/3',
+    address: 'ул. Минская, д. 43/3',
+    x: 90,
+    y: 75,
+    services: [
+      { id: '1', name: 'Водоснабжение', price: '1,200₽', status: 'active' },
+      { id: '2', name: 'Отопление', price: '2,800₽', status: 'active' },
+      { id: '3', name: 'Электричество', price: '1,500₽', status: 'active' },
+      { id: '4', name: 'Охрана', price: '300₽', status: 'active' }
+    ]
+  },
+  {
+    id: '43a_2',
+    number: '43а/2',
+    address: 'ул. Минская, д. 43а/2',
+    x: 85,
+    y: 80,
+    services: [
+      { id: '1', name: 'Водоснабжение', price: '1,350₽', status: 'active' },
+      { id: '2', name: 'Отопление', price: '3,100₽', status: 'active' },
+      { id: '3', name: 'Электричество', price: '1,650₽', status: 'active' },
+      { id: '4', name: 'Парковка', price: '500₽', status: 'active' }
+    ]
+  },
+  {
+    id: '43a_3',
+    number: '43а/3',
+    address: 'ул. Минская, д. 43а/3',
+    x: 90,
+    y: 85,
+    services: [
+      { id: '1', name: 'Водоснабжение', price: '1,180₽', status: 'active' },
+      { id: '2', name: 'Отопление', price: '2,750₽', status: 'active' },
+      { id: '3', name: 'Электричество', price: '1,450₽', status: 'active' },
+      { id: '4', name: 'Детская площадка', price: '80₽', status: 'active' }
+    ]
+  },
+  // Левая группа домов
+  {
+    id: '69_main',
+    number: '69',
+    address: 'ул. Минская, д. 69',
+    x: 15,
+    y: 75,
+    services: [
+      { id: '1', name: 'Водоснабжение', price: '1,320₽', status: 'active' },
+      { id: '2', name: 'Отопление', price: '3,050₽', status: 'active' },
+      { id: '3', name: 'Электричество', price: '1,620₽', status: 'active' },
+      { id: '4', name: 'Благоустройство', price: '200₽', status: 'maintenance' }
+    ]
+  },
+  {
+    id: '69b',
+    number: '69б',
+    address: 'ул. Минская, д. 69б',
+    x: 25,
+    y: 75,
+    services: [
+      { id: '1', name: 'Водоснабжение', price: '1,250₽', status: 'active' },
+      { id: '2', name: 'Отопление', price: '2,900₽', status: 'active' },
+      { id: '3', name: 'Электричество', price: '1,550₽', status: 'active' },
+      { id: '4', name: 'Спортплощадка', price: '100₽', status: 'active' }
+    ]
+  },
+  // Верхняя группа домов (по образцу карты)
+  {
+    id: '83',
+    number: '83',
+    address: 'ул. Минская, д. 83',
+    x: 15,
+    y: 85,
+    services: [
+      { id: '1', name: 'Водоснабжение', price: '1,400₽', status: 'active' },
+      { id: '2', name: 'Отопление', price: '3,200₽', status: 'active' },
+      { id: '3', name: 'Электричество', price: '1,700₽', status: 'active' },
+      { id: '4', name: 'Зеленые насаждения', price: '120₽', status: 'active' }
+    ]
+  },
+  {
+    id: '81',
+    number: '81',
+    address: 'ул. Минская, д. 81',
+    x: 25,
+    y: 85,
+    services: [
+      { id: '1', name: 'Водоснабжение', price: '1,280₽', status: 'active' },
+      { id: '2', name: 'Отопление', price: '2,950₽', status: 'active' },
+      { id: '3', name: 'Электричество', price: '1,580₽', status: 'active' },
+      { id: '4', name: 'Освещение', price: '150₽', status: 'active' }
+    ]
+  },
+  {
+    id: '79',
+    number: '79',
+    address: 'ул. Минская, д. 79',
+    x: 35,
+    y: 85,
+    services: [
+      { id: '1', name: 'Водоснабжение', price: '1,200₽', status: 'active' },
+      { id: '2', name: 'Отопление', price: '2,800₽', status: 'active' },
+      { id: '3', name: 'Электричество', price: '1,500₽', status: 'active' },
+      { id: '4', name: 'Магазин в доме', price: '0₽', status: 'active' }
+    ]
+  },
+  {
+    id: '77',
+    number: '77',
+    address: 'ул. Минская, д. 77',
+    x: 45,
+    y: 85,
+    services: [
+      { id: '1', name: 'Водоснабжение', price: '1,350₽', status: 'active' },
+      { id: '2', name: 'Отопление', price: '3,100₽', status: 'active' },
+      { id: '3', name: 'Электричество', price: '1,650₽', status: 'active' },
+      { id: '4', name: 'Почта', price: '50₽', status: 'active' }
+    ]
+  },
+  {
+    id: '75a',
+    number: '75а',
+    address: 'ул. Минская, д. 75а',
+    x: 55,
+    y: 85,
+    services: [
+      { id: '1', name: 'Водоснабжение', price: '1,180₽', status: 'active' },
+      { id: '2', name: 'Отопление', price: '2,750₽', status: 'active' },
+      { id: '3', name: 'Электричество', price: '1,450₽', status: 'active' },
+      { id: '4', name: 'Аптека в доме', price: '0₽', status: 'active' }
+    ]
+  },
+  {
+    id: '75',
+    number: '75',
+    address: 'ул. Минская, д. 75',
+    x: 65,
+    y: 85,
     services: [
       { id: '1', name: 'Водоснабжение', price: '1,320₽', status: 'active' },
       { id: '2', name: 'Отопление', price: '3,050₽', status: 'active' },
       { id: '3', name: 'Электричество', price: '1,620₽', status: 'active' },
       { id: '4', name: 'Кафе в доме', price: '0₽', status: 'active' }
+    ]
+  },
+  {
+    id: '71',
+    number: '71',
+    address: 'ул. Минская, д. 71',
+    x: 75,
+    y: 85,
+    services: [
+      { id: '1', name: 'Водоснабжение', price: '1,250₽', status: 'active' },
+      { id: '2', name: 'Отопление', price: '2,900₽', status: 'active' },
+      { id: '3', name: 'Электричество', price: '1,550₽', status: 'active' },
+      { id: '4', name: 'Домофон', price: '100₽', status: 'active' }
+    ]
+  },
+  {
+    id: '71a',
+    number: '71а',
+    address: 'ул. Минская, д. 71а',
+    x: 85,
+    y: 85,
+    services: [
+      { id: '1', name: 'Водоснабжение', price: '1,280₽', status: 'active' },
+      { id: '2', name: 'Отопление', price: '2,950₽', status: 'active' },
+      { id: '3', name: 'Электричество', price: '1,580₽', status: 'active' },
+      { id: '4', name: 'Лифт', price: '250₽', status: 'active' }
+    ]
+  },
+  {
+    id: '73',
+    number: '73',
+    address: 'ул. Минская, д. 73',
+    x: 95,
+    y: 85,
+    services: [
+      { id: '1', name: 'Водоснабжение', price: '1,200₽', status: 'active' },
+      { id: '2', name: 'Отопление', price: '2,800₽', status: 'active' },
+      { id: '3', name: 'Электричество', price: '1,500₽', status: 'active' },
+      { id: '4', name: 'Уборка', price: '150₽', status: 'active' }
+    ]
+  },
+  // Дополнительные дома
+  {
+    id: '29a',
+    number: '29а',
+    address: 'ул. Минская, д. 29а',
+    x: 5,
+    y: 90,
+    services: [
+      { id: '1', name: 'Водоснабжение', price: '1,350₽', status: 'active' },
+      { id: '2', name: 'Отопление', price: '3,100₽', status: 'active' },
+      { id: '3', name: 'Электричество', price: '1,650₽', status: 'active' },
+      { id: '4', name: 'Консьерж', price: '400₽', status: 'active' }
+    ]
+  },
+  {
+    id: '40k1',
+    number: '40к1',
+    address: 'ул. Минская, д. 40к1',
+    x: 15,
+    y: 90,
+    services: [
+      { id: '1', name: 'Водоснабжение', price: '1,180₽', status: 'active' },
+      { id: '2', name: 'Отопление', price: '2,750₽', status: 'active' },
+      { id: '3', name: 'Электричество', price: '1,450₽', status: 'active' },
+      { id: '4', name: 'Видеонаблюдение', price: '200₽', status: 'active' }
+    ]
+  },
+  {
+    id: '29',
+    number: '29',
+    address: 'ул. Минская, д. 29',
+    x: 25,
+    y: 90,
+    services: [
+      { id: '1', name: 'Водоснабжение', price: '1,320₽', status: 'active' },
+      { id: '2', name: 'Отопление', price: '3,050₽', status: 'active' },
+      { id: '3', name: 'Электричество', price: '1,620₽', status: 'active' },
+      { id: '4', name: 'Интернет', price: '800₽', status: 'active' }
     ]
   }
 ];
@@ -376,37 +703,9 @@ export default function Index() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="relative bg-gradient-to-br from-gray-100 via-green-50 to-gray-200 rounded-lg p-8 h-96 overflow-hidden" style={{backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23d1d5db' fill-opacity='0.1' fill-rule='evenodd'%3E%3Cpath d='m0 40l40-40h-40v40z'/%3E%3C/g%3E%3C/svg%3E")`}}>
-                  
-                  {/* Territory borders */}
-                  <div className="absolute inset-2 border-2 border-blue-300 border-dashed opacity-40 rounded-lg"></div>
-                  
-                  {/* Street names */}
-                  <div className="absolute top-2 left-4 text-xs font-semibold text-gray-600 bg-white/80 px-2 py-1 rounded">
-                    ул. Минская
-                  </div>
-                  
-                  {/* Infrastructure objects */}
-                  <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2">
-                    <div className="bg-blue-100 border border-blue-300 rounded-lg p-2 text-xs text-center">
-                      <Icon name="Car" size={16} className="text-blue-600 mx-auto mb-1" />
-                      <div className="text-blue-800 font-semibold">Парковка</div>
-                    </div>
-                  </div>
-                  
-                  <div className="absolute top-16 right-8">
-                    <div className="bg-green-100 border border-green-300 rounded-lg p-2 text-xs text-center">
-                      <Icon name="TreePine" size={16} className="text-green-600 mx-auto mb-1" />
-                      <div className="text-green-800 font-semibold">Сквер</div>
-                    </div>
-                  </div>
-                  
-                  <div className="absolute bottom-8 right-4">
-                    <div className="bg-yellow-100 border border-yellow-300 rounded-lg p-2 text-xs text-center">
-                      <Icon name="Baby" size={16} className="text-yellow-600 mx-auto mb-1" />
-                      <div className="text-yellow-800 font-semibold">Детсад №78</div>
-                    </div>
-                  </div>
+                <div className="relative rounded-lg overflow-hidden h-96 bg-cover bg-center" style={{backgroundImage: 'url(https://cdn.poehali.dev/files/8aee36df-ba9f-4dc7-87b0-030cd0e3f853.png)'}}>
+                  {/* Полупрозрачный слой для лучшей видимости домов */}
+                  <div className="absolute inset-0 bg-black/10"></div>
                   
                   {/* Houses */}
                   {HOUSES.map((house) => (
@@ -416,27 +715,22 @@ export default function Index() {
                       className="absolute transform -translate-x-1/2 -translate-y-1/2 group"
                       style={{ left: `${house.x}%`, top: `${house.y}%` }}
                     >
-                      <div className="bg-orange-50 border-2 border-orange-200 rounded-lg p-2 shadow-md hover:shadow-lg hover:border-primary transition-all duration-200 hover:scale-105">
+                      <div className="bg-white/95 border-2 border-orange-400 rounded-lg p-2 shadow-lg hover:shadow-xl hover:border-primary transition-all duration-200 hover:scale-110 backdrop-blur-sm">
                         <div className="text-center">
                           <div className="w-8 h-8 bg-primary rounded mx-auto mb-1 flex items-center justify-center">
-                            <Icon name="Building2" size={16} className="text-white" />
+                            <Icon name="Building2" size={14} className="text-white" />
                           </div>
-                          <div className="font-bold text-gray-900 text-sm">{house.number}</div>
+                          <div className="font-bold text-gray-900 text-xs leading-tight">{house.number}</div>
                         </div>
                       </div>
                     </button>
                   ))}
                   
-                  {/* Roads and paths */}
-                  <div className="absolute bottom-0 left-0 right-0 h-6 bg-gray-300 opacity-50 rounded-b-lg"></div>
-                  <div className="absolute top-1/2 left-0 w-full h-3 bg-gray-300 opacity-30"></div>
-                  <div className="absolute left-1/4 top-0 w-2 h-full bg-gray-300 opacity-25"></div>
-                  <div className="absolute right-1/4 top-0 w-2 h-full bg-gray-300 opacity-25"></div>
-                  
                   {/* Legend */}
-                  <div className="absolute top-2 right-2 bg-white/90 rounded-lg p-2 text-xs">
-                    <div className="font-semibold text-gray-700 mb-1">УК "Родник"</div>
+                  <div className="absolute top-2 right-2 bg-white/95 backdrop-blur-sm rounded-lg p-3 text-xs shadow-lg border">
+                    <div className="font-bold text-gray-800 mb-1">УК "Родник"</div>
                     <div className="text-gray-600">{HOUSES.length} домов</div>
+                    <div className="text-green-600 text-xs mt-1">Кликните на дом</div>
                   </div>
                 </div>
               </CardContent>
