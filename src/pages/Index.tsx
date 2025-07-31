@@ -740,39 +740,7 @@ export default function Index() {
           {/* Info Panel */}
           <div className="space-y-6">
             
-            {/* Statistics */}
-            <Card className="shadow-lg">
-              <CardHeader>
-                <CardTitle className="flex items-center space-x-2">
-                  <Icon name="BarChart3" size={24} className="text-primary" />
-                  <span>Статистика</span>
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-600">Всего домов:</span>
-                  <Badge variant="secondary" className="text-lg px-3 py-1">{HOUSES.length}</Badge>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-600">Активных услуг:</span>
-                  <Badge className="bg-green-500 text-lg px-3 py-1">
-                    {HOUSES.reduce((acc, house) => acc + house.services.filter(s => s.status === 'active').length, 0)}
-                  </Badge>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-600">На обслуживании:</span>
-                  <Badge className="bg-yellow-500 text-lg px-3 py-1">
-                    {HOUSES.reduce((acc, house) => acc + house.services.filter(s => s.status === 'maintenance').length, 0)}
-                  </Badge>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-600">Отключено:</span>
-                  <Badge className="bg-red-500 text-lg px-3 py-1">
-                    {HOUSES.reduce((acc, house) => acc + house.services.filter(s => s.status === 'inactive').length, 0)}
-                  </Badge>
-                </div>
-              </CardContent>
-            </Card>
+
 
             {/* Contacts */}
             <Card className="shadow-lg">
@@ -785,43 +753,18 @@ export default function Index() {
               <CardContent className="space-y-4">
                 <div className="flex items-center space-x-3">
                   <Icon name="Phone" size={16} className="text-gray-500" />
-                  <span className="text-gray-700">+7 (495) 123-45-67</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <Icon name="Mail" size={16} className="text-gray-500" />
-                  <span className="text-gray-700">info@rodnik-uk.ru</span>
+                  <span className="text-gray-700">296-10-02</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Icon name="MapPin" size={16} className="text-gray-500" />
-                  <span className="text-gray-700">ул. Лесная, д. 1, офис 1</span>
+                  <span className="text-gray-700">Минская улица, д. 69/2</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Icon name="Clock" size={16} className="text-gray-500" />
-                  <span className="text-gray-700">Пн-Пт: 9:00-18:00</span>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Emergency */}
-            <Card className="shadow-lg border-red-200">
-              <CardHeader>
-                <CardTitle className="flex items-center space-x-2 text-red-600">
-                  <Icon name="AlertTriangle" size={24} />
-                  <span>Экстренные службы</span>
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-700">Диспетчерская:</span>
-                  <span className="font-bold text-red-600">101</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-700">Слесарь:</span>
-                  <span className="font-bold text-red-600">102</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-700">Электрик:</span>
-                  <span className="font-bold text-red-600">103</span>
+                  <div className="text-gray-700">
+                    <div>Пн-Пт: 08:00-17:00</div>
+                    <div className="text-sm text-gray-500">Перерыв: 12:00-13:00</div>
+                  </div>
                 </div>
               </CardContent>
             </Card>
