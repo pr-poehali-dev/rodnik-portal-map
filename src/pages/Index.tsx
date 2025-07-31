@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Badge } from '@/components/ui/badge';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Textarea } from '@/components/ui/textarea';
 import Icon from '@/components/ui/icon';
 
 interface Service {
@@ -21,6 +23,15 @@ interface House {
   services: Service[];
   x: number;
   y: number;
+}
+
+interface UserInfo {
+  [houseId: string]: {
+    complaints: string[];
+    suggestions: string[];
+    announcements: string[];
+    contacts: string[];
+  };
 }
 
 const HOUSES: House[] = [
@@ -596,6 +607,24 @@ export default function Index() {
   const [password, setPassword] = useState('');
   const [selectedHouse, setSelectedHouse] = useState<House | null>(null);
   const [showServices, setShowServices] = useState(false);
+  const [activeTab, setActiveTab] = useState('services');
+  const [userInfo, setUserInfo] = useState<UserInfo>({});
+  const [newComplaint, setNewComplaint] = useState('');
+  const [newSuggestion, setNewSuggestion] = useState('');
+  const [newAnnouncement, setNewAnnouncement] = useState('');
+  const [newContact, setNewContact] = useState('');
+
+  useEffect(() => {
+    const savedUserInfo = localStorage.getItem('rodnik-user-info');
+    if (savedUserInfo) {
+      setUserInfo(JSON.parse(savedUserInfo));
+    }
+  }, []);
+
+  const saveUserInfo = (info: UserInfo) => {
+    setUserInfo(info);
+    localStorage.setItem('rodnik-user-info', JSON.stringify(info));
+  };
 
   const handleLogin = () => {
     if (password === 'rodnik2024') {
@@ -608,6 +637,60 @@ export default function Index() {
   const handleHouseClick = (house: House) => {
     setSelectedHouse(house);
     setShowServices(true);
+    setActiveTab('services');
+  };
+
+  const addComplaint = () => {
+    if (!selectedHouse || !newComplaint.trim()) return;
+    const updated = { ...userInfo };
+    if (!updated[selectedHouse.id]) {
+      updated[selectedHouse.id] = { complaints: [], suggestions: [], announcements: [], contacts: [] };
+    }
+    updated[selectedHouse.id].complaints.push(newComplaint.trim());
+    saveUserInfo(updated);
+    setNewComplaint('');
+  };
+
+  const addSuggestion = () => {
+    if (!selectedHouse || !newSuggestion.trim()) return;
+    const updated = { ...userInfo };
+    if (!updated[selectedHouse.id]) {
+      updated[selectedHouse.id] = { complaints: [], suggestions: [], announcements: [], contacts: [] };
+    }
+    updated[selectedHouse.id].suggestions.push(newSuggestion.trim());
+    saveUserInfo(updated);
+    setNewSuggestion('');
+  };
+
+  const addAnnouncement = () => {
+    if (!selectedHouse || !newAnnouncement.trim()) return;
+    const updated = { ...userInfo };
+    if (!updated[selectedHouse.id]) {
+      updated[selectedHouse.id] = { complaints: [], suggestions: [], announcements: [], contacts: [] };
+    }
+    updated[selectedHouse.id].announcements.push(newAnnouncement.trim());
+    saveUserInfo(updated);
+    setNewAnnouncement('');
+  };
+
+  const addContact = () => {
+    if (!selectedHouse || !newContact.trim()) return;
+    const updated = { ...userInfo };
+    if (!updated[selectedHouse.id]) {
+      updated[selectedHouse.id] = { complaints: [], suggestions: [], announcements: [], contacts: [] };
+    }
+    updated[selectedHouse.id].contacts.push(newContact.trim());
+    saveUserInfo(updated);
+    setNewContact('');
+  };
+
+  const removeItem = (type: keyof UserInfo[string], index: number) => {
+    if (!selectedHouse) return;
+    const updated = { ...userInfo };
+    if (updated[selectedHouse.id] && updated[selectedHouse.id][type]) {
+      updated[selectedHouse.id][type].splice(index, 1);
+      saveUserInfo(updated);
+    }
   };
 
   const getStatusColor = (status: string) => {
@@ -774,7 +857,7 @@ export default function Index() {
 
       {/* Services Dialog */}
       <Dialog open={showServices} onOpenChange={setShowServices}>
-        <DialogContent className="max-w-2xl">
+        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle className="flex items-center space-x-2">
               <Icon name="Home" size={24} className="text-primary" />
@@ -785,33 +868,184 @@ export default function Index() {
             </DialogDescription>
           </DialogHeader>
           
-          <div className="grid gap-4 py-4">
-            {selectedHouse?.services.map((service) => (
-              <Card key={service.id} className="shadow-sm">
-                <CardContent className="flex items-center justify-between p-4">
-                  <div className="flex items-center space-x-3">
-                    <div className={`w-3 h-3 rounded-full ${getStatusColor(service.status)}`}></div>
-                    <div>
-                      <h3 className="font-medium text-gray-900">{service.name}</h3>
-                      <p className="text-sm text-gray-500">{getStatusText(service.status)}</p>
-                    </div>
-                  </div>
-                  <div className="text-right">
-                    <div className="font-bold text-lg text-gray-900">{service.price}</div>
-                    <div className="text-xs text-gray-500">в месяц</div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+          <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+            <TabsList className="grid w-full grid-cols-5">
+              <TabsTrigger value="services">Услуги</TabsTrigger>
+              <TabsTrigger value="complaints">Жалобы</TabsTrigger>
+              <TabsTrigger value="suggestions">Предложения</TabsTrigger>
+              <TabsTrigger value="announcements">Объявления</TabsTrigger>
+              <TabsTrigger value="contacts">Контакты</TabsTrigger>
+            </TabsList>
+            
+            <TabsContent value="services" className="space-y-4">
+              <div className="grid gap-4">
+                {selectedHouse?.services.map((service) => (
+                  <Card key={service.id} className="shadow-sm">
+                    <CardContent className="flex items-center justify-between p-4">
+                      <div className="flex items-center space-x-3">
+                        <div className={`w-3 h-3 rounded-full ${getStatusColor(service.status)}`}></div>
+                        <div>
+                          <h3 className="font-medium text-gray-900">{service.name}</h3>
+                          <p className="text-sm text-gray-500">{getStatusText(service.status)}</p>
+                        </div>
+                      </div>
+                      <div className="text-right">
+                        <div className="font-bold text-lg text-gray-900">{service.price}</div>
+                        <div className="text-xs text-gray-500">в месяц</div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </TabsContent>
+            
+            <TabsContent value="complaints" className="space-y-4">
+              <div className="flex space-x-2">
+                <Textarea
+                  placeholder="Опишите вашу жалобу..."
+                  value={newComplaint}
+                  onChange={(e) => setNewComplaint(e.target.value)}
+                  className="flex-1"
+                  rows={3}
+                />
+                <Button onClick={addComplaint} disabled={!newComplaint.trim()}>
+                  <Icon name="Plus" size={16} className="mr-2" />
+                  Добавить
+                </Button>
+              </div>
+              <div className="space-y-2">
+                {userInfo[selectedHouse?.id || '']?.complaints?.map((complaint, index) => (
+                  <Card key={index} className="shadow-sm">
+                    <CardContent className="flex items-start justify-between p-3">
+                      <p className="text-sm text-gray-700 flex-1">{complaint}</p>
+                      <Button 
+                        variant="ghost" 
+                        size="sm" 
+                        onClick={() => removeItem('complaints', index)}
+                        className="text-red-500 hover:text-red-700"
+                      >
+                        <Icon name="X" size={14} />
+                      </Button>
+                    </CardContent>
+                  </Card>
+                )) || []}
+                {(!userInfo[selectedHouse?.id || '']?.complaints?.length) && (
+                  <p className="text-gray-500 text-center py-4">Жалоб пока нет</p>
+                )}
+              </div>
+            </TabsContent>
+            
+            <TabsContent value="suggestions" className="space-y-4">
+              <div className="flex space-x-2">
+                <Textarea
+                  placeholder="Опишите ваше предложение..."
+                  value={newSuggestion}
+                  onChange={(e) => setNewSuggestion(e.target.value)}
+                  className="flex-1"
+                  rows={3}
+                />
+                <Button onClick={addSuggestion} disabled={!newSuggestion.trim()}>
+                  <Icon name="Plus" size={16} className="mr-2" />
+                  Добавить
+                </Button>
+              </div>
+              <div className="space-y-2">
+                {userInfo[selectedHouse?.id || '']?.suggestions?.map((suggestion, index) => (
+                  <Card key={index} className="shadow-sm">
+                    <CardContent className="flex items-start justify-between p-3">
+                      <p className="text-sm text-gray-700 flex-1">{suggestion}</p>
+                      <Button 
+                        variant="ghost" 
+                        size="sm" 
+                        onClick={() => removeItem('suggestions', index)}
+                        className="text-red-500 hover:text-red-700"
+                      >
+                        <Icon name="X" size={14} />
+                      </Button>
+                    </CardContent>
+                  </Card>
+                )) || []}
+                {(!userInfo[selectedHouse?.id || '']?.suggestions?.length) && (
+                  <p className="text-gray-500 text-center py-4">Предложений пока нет</p>
+                )}
+              </div>
+            </TabsContent>
+            
+            <TabsContent value="announcements" className="space-y-4">
+              <div className="flex space-x-2">
+                <Textarea
+                  placeholder="Напишите объявление..."
+                  value={newAnnouncement}
+                  onChange={(e) => setNewAnnouncement(e.target.value)}
+                  className="flex-1"
+                  rows={3}
+                />
+                <Button onClick={addAnnouncement} disabled={!newAnnouncement.trim()}>
+                  <Icon name="Plus" size={16} className="mr-2" />
+                  Опубликовать
+                </Button>
+              </div>
+              <div className="space-y-2">
+                {userInfo[selectedHouse?.id || '']?.announcements?.map((announcement, index) => (
+                  <Card key={index} className="shadow-sm">
+                    <CardContent className="flex items-start justify-between p-3">
+                      <p className="text-sm text-gray-700 flex-1">{announcement}</p>
+                      <Button 
+                        variant="ghost" 
+                        size="sm" 
+                        onClick={() => removeItem('announcements', index)}
+                        className="text-red-500 hover:text-red-700"
+                      >
+                        <Icon name="X" size={14} />
+                      </Button>
+                    </CardContent>
+                  </Card>
+                )) || []}
+                {(!userInfo[selectedHouse?.id || '']?.announcements?.length) && (
+                  <p className="text-gray-500 text-center py-4">Объявлений пока нет</p>
+                )}
+              </div>
+            </TabsContent>
+            
+            <TabsContent value="contacts" className="space-y-4">
+              <div className="flex space-x-2">
+                <Input
+                  placeholder="Имя, телефон, email или комментарий..."
+                  value={newContact}
+                  onChange={(e) => setNewContact(e.target.value)}
+                  className="flex-1"
+                />
+                <Button onClick={addContact} disabled={!newContact.trim()}>
+                  <Icon name="Plus" size={16} className="mr-2" />
+                  Добавить
+                </Button>
+              </div>
+              <div className="space-y-2">
+                {userInfo[selectedHouse?.id || '']?.contacts?.map((contact, index) => (
+                  <Card key={index} className="shadow-sm">
+                    <CardContent className="flex items-center justify-between p-3">
+                      <p className="text-sm text-gray-700 flex-1">{contact}</p>
+                      <Button 
+                        variant="ghost" 
+                        size="sm" 
+                        onClick={() => removeItem('contacts', index)}
+                        className="text-red-500 hover:text-red-700"
+                      >
+                        <Icon name="X" size={14} />
+                      </Button>
+                    </CardContent>
+                  </Card>
+                )) || []}
+                {(!userInfo[selectedHouse?.id || '']?.contacts?.length) && (
+                  <p className="text-gray-500 text-center py-4">Контактов пока нет</p>
+                )}
+              </div>
+            </TabsContent>
+          </Tabs>
           
-          <div className="flex justify-end space-x-2">
+          <div className="flex justify-end space-x-2 pt-4 border-t">
             <Button variant="outline" onClick={() => setShowServices(false)}>
               Закрыть
-            </Button>
-            <Button>
-              <Icon name="FileText" size={16} className="mr-2" />
-              Отчет по дому
             </Button>
           </div>
         </DialogContent>
